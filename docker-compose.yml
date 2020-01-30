@@ -2,8 +2,8 @@ version: "3.7"
 
 services:
 
-  plate:
+  draco-web:
     build: .
-    image: docker.pkg.github.com/calini/plate/plate:dev
+    image: docker.pkg.github.com/calini/draco-web/draco-web:dev
     ports:
       - "8080:8080"
