@@ -1,25 +1,15 @@
-## Build stage ##
-FROM golang:1.13-alpine AS builder
-RUN apk --no-cache add git
+# build environment
+FROM node:12.16.0-alpine as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN npm install --silent
+RUN npm install react-scripts@3.0.1 -g --silent
+COPY . /app
+RUN npm run build
 
-WORKDIR /out
-
-# get dependencies
-COPY go.mod go.sum /out/
-RUN go mod download
-
-# copy project
-COPY . .
-
-# test project
-RUN CGO_ENABLED=0 GOOS=linux go test -v ./...
-
-# build project
-RUN CGO_ENABLED=0 GOOS=linux go build -o app
-
-## Run stage ##
-FROM scratch
-
-COPY --from=builder /out/app .
-EXPOSE 8080
-CMD ["./app"]
+# production environment
+FROM nginx:1.16.0-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

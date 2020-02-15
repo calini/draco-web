@@ -5,6 +5,9 @@
 .dockerignore
 docker-compose.yml
 
+## Node stuff ##
+node_modules
+
 ## Other stuff ##
 **/*.md
 Makefile
