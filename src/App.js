@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import Router from 'react-router';
 
+// Render the GitHubLogin?
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+        </Router>
+    );
 }
 
 export default App;
+
+/* GitHub Login
+// import GitHubLogin from 'react-github-login';
+return (<GitHubLogin clientId="191ba85e49c54feb0697"
+                 onSuccess={ (response) => console.log(response) }
+                 onFailure={ (response) => console.error(response) }
+                 redirectUri={"http://localhost:3000/oauth2/callback"}/>)
+ */

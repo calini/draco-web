@@ -4,6 +4,6 @@ services:
 
   draco-web:
     build: .
-    image: docker.pkg.github.com/calini/draco-web/draco-web:dev
+    image: calini/draco-web:dev
     ports:
       - "8080:80"
