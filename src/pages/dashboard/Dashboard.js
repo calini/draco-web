@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {
   Grid,
   LinearProgress,
@@ -35,10 +35,10 @@ import BigStat from "./components/BigStat/BigStat";
 
 const mainChartData = getMainChartData();
 const PieChartData = [
-  { name: "Group A", value: 400, color: "primary" },
-  { name: "Group B", value: 300, color: "secondary" },
-  { name: "Group C", value: 300, color: "warning" },
-  { name: "Group D", value: 200, color: "success" },
+  { name: "Java (Spring)", value: 400, color: "primary" },
+  { name: "Python (Django)", value: 300, color: "secondary" },
+  { name: "Python (Flask)", value: 300, color: "warning" },
+  { name: "Go (Gin)", value: 200, color: "success" },
 ];
 
 export default function Dashboard(props) {
@@ -54,7 +54,7 @@ export default function Dashboard(props) {
       <Grid container spacing={4}>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
-            title="Visits Today"
+            title="Network Traffic"
             upperTitle
             bodyClass={classes.fullHeightBody}
             className={classes.card}
@@ -113,7 +113,7 @@ export default function Dashboard(props) {
         </Grid>
         <Grid item lg={3} md={8} sm={6} xs={12}>
           <Widget
-            title="App Performance"
+            title="Code Coverage"
             upperTitle
             className={classes.card}
             bodyClass={classes.fullHeightBody}
@@ -126,7 +126,7 @@ export default function Dashboard(props) {
                   colorBrightness="secondary"
                   className={classes.legendElementText}
                 >
-                  Integration
+                  Project 1
                 </Typography>
               </div>
               <div className={classes.legendElement}>
@@ -136,7 +136,7 @@ export default function Dashboard(props) {
                   colorBrightness="secondary"
                   className={classes.legendElementText}
                 >
-                  SDK
+                  Project 2
                 </Typography>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default function Dashboard(props) {
                 colorBrightness="secondary"
                 className={classes.progressSectionTitle}
               >
-                Integration
+                Project 1
               </Typography>
               <LinearProgress
                 variant="determinate"
@@ -163,7 +163,7 @@ export default function Dashboard(props) {
                 colorBrightness="secondary"
                 className={classes.progressSectionTitle}
               >
-                SDK
+                Project 2
               </Typography>
               <LinearProgress
                 variant="determinate"
@@ -253,7 +253,7 @@ export default function Dashboard(props) {
           </Widget>
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Widget title="Revenue Breakdown" upperTitle className={classes.card}>
+          <Widget title="Languages & Frameworks" upperTitle className={classes.card}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <ResponsiveContainer width="100%" height={144}>

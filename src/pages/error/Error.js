@@ -7,8 +7,8 @@ import classnames from "classnames";
 import useStyles from "./styles";
 
 // logo
-import logo from "./logo.svg";
-
+// import logo from "./logo.svg";
+import logo from "./logo.jpeg";
 export default function Error() {
   var classes = useStyles();
 

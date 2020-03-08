@@ -4,6 +4,8 @@ metadata:
   name: {{ include "draco-web.fullname" . }}
   labels:
 {{ include "draco-web.labels" . | indent 4 }}
+  annotations:
+    timestamp: {{ .Values.timestamp }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:

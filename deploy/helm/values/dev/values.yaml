@@ -13,7 +13,7 @@ ingress:
     kubernetes.io/ingress.class: traefik
   # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: draco-web.dev.ilie.io
+    - host: draco.dev.ilie.io
       paths: [/]
 
   tls: []

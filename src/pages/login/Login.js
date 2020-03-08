@@ -16,31 +16,34 @@ import classnames from "classnames";
 import useStyles from "./styles";
 
 // logo
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
+import logo from "./logo.jpeg";
 import google from "../../images/google.svg";
+import useFetch from "use-http";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
+import StatusCheck from "../extra/statusCheck/StatusCheck";
 
 function Login(props) {
-  var classes = useStyles();
+  let classes = useStyles();
 
   // global
-  var userDispatch = useUserDispatch();
+  let userDispatch = useUserDispatch();
 
   // local
-  var [isLoading, setIsLoading] = useState(false);
-  var [error, setError] = useState(null);
-  var [activeTabId, setActiveTabId] = useState(0);
-  var [nameValue, setNameValue] = useState("");
-  var [loginValue, setLoginValue] = useState("");
-  var [passwordValue, setPasswordValue] = useState("");
+  let [isLoading, setIsLoading] = useState(false);
+  let [error, setError] = useState(null);
+  let [activeTabId, setActiveTabId] = useState(0);
+  let [nameValue, setNameValue] = useState("");
+  let [loginValue, setLoginValue] = useState("");
+  let [passwordValue, setPasswordValue] = useState("");
 
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
         <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        <Typography className={classes.logotypeText}>Draco Dashboard</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
@@ -57,7 +60,7 @@ function Login(props) {
           {activeTabId === 0 && (
             <React.Fragment>
               <Typography variant="h1" className={classes.greeting}>
-                Good Morning, User
+                Welcome!
               </Typography>
               <Button size="large" className={classes.googleButton}>
                 <img src={google} alt="google" className={classes.googleIcon} />
@@ -245,7 +248,8 @@ function Login(props) {
           )}
         </div>
         <Typography color="primary" className={classes.copyright}>
-          © 2014-2019 Flatlogic, LLC. All rights reserved.
+          Draco Dashboard - Calin Ilie
+          <StatusCheck></StatusCheck>
         </Typography>
       </div>
     </Grid>
