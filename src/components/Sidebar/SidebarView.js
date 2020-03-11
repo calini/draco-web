@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  Drawer,
-  IconButton,
-  List,
-  withStyles } from "@material-ui/core";
+import { Drawer, IconButton, List, withStyles } from "@material-ui/core";
 import {
   Home as HomeIcon,
   NotificationsNone as NotificationsIcon,
@@ -14,6 +10,7 @@ import {
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
+  Code as CodeIcon,
 } from "@material-ui/icons";
 import classNames from 'classnames';
 
@@ -22,6 +19,7 @@ import Dot from './components/Dot';
 
 const structure = [
   { id: 0, label: 'Dashboard', link: '/app/dashboard', icon: <HomeIcon /> },
+  { id: 0, label: 'Code Scanning', link: '/app/code_scanning', icon: <CodeIcon /> },
   { id: 1, label: 'Typography', link: '/app/typography', icon: <TypographyIcon /> },
   { id: 2, label: 'Tables', link: '/app/tables', icon: <TableIcon /> },
   { id: 3, label: 'Notifications', link: '/app/notifications', icon: <NotificationsIcon />},
