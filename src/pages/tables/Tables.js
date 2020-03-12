@@ -41,7 +41,7 @@ export default function Tables() {
             data={datatableData}
             columns={["Name", "Company", "City", "State"]}
             options={{
-              filterType: "checkbox",
+              filterType: "hidden",
             }}
           />
         </Grid>
