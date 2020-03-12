@@ -26,6 +26,10 @@ import Charts from "../../pages/charts";
 // context
 import { useLayoutState } from "../../context/LayoutContext";
 import DependencyCheck from "../../pages/dependencyCheck";
+import PortScans from "../../pages/portScans";
+import HostVulns from "../../pages/hostVulns";
+import AboutPage from "../../pages/about";
+import FAQ from "../../pages/faq";
 
 function Layout(props) {
   var classes = useStyles();
@@ -45,19 +49,17 @@ function Layout(props) {
           >
             <div className={classes.fakeToolbar} />
             <Switch>
-              <Route path="/app/dashboard"         component={Dashboard} />
-              <Route path="/app/codeAnalysis"      component={Dashboard} />
-              <Route path="/app/dependencyChecks"  component={DependencyCheck} />
-              <Route path="/app/ports"             component={Dashboard} />
-              <Route path="/app/vulnerabilities"   component={Dashboard} />
 
-              <Route path="/app/typography" component={Typography} />
-              <Route path="/app/tables" component={Tables} />
-              <Route path="/app/notifications" component={Notifications} />
-              <Route exact path="/app/ui" render={() => <Redirect to="/app/ui/icons" />} />
-              <Route path="/app/ui/maps" component={Maps} />
-              <Route path="/app/ui/icons" component={Icons} />
-              <Route path="/app/ui/charts" component={Charts} />
+              <Route path="/app/deps"              component={DependencyCheck} />
+              <Route path="/app/ports"             component={PortScans} />
+              <Route path="/app/hosts"             component={HostVulns} />
+
+
+              <Route path="/app/about"             component={AboutPage} />
+              <Route path="/app/faq"               component={FAQ} />
+
+              <Route path="/app/dashboard"         component={Dashboard} />
+              <Route path="/app/charts"            component={Charts} />
             </Switch>
           </div>
         </>

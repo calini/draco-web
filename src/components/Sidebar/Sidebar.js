@@ -14,6 +14,7 @@ import {
   Storage as VMIcon,
   Router as NetworkIcon,
   AccountTree as TreeIcon,
+  Assessment as AssessmentIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -34,29 +35,20 @@ import {
 } from "../../context/LayoutContext";
 
 const structure = [
-  { id: 1, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
-  { id: 2, label: "Code Analysis", link: "/app/codeAnalysis", icon: <CodeIcon /> },
-  { id: 3, label: "Dependency Check", link: "/app/dependencyChecks", icon: <TreeIcon /> },
+
+  { id: 5, label: "Host Vulnerabilities", link: "/app/hosts", icon: <VMIcon /> },
+  { id: 3, label: "Code Analysis", link: "/app/deps", icon: <TreeIcon /> },
   { id: 4, label: "Open Ports", link: "/app/ports", icon: <NetworkIcon /> },
-  { id: 5, label: "Host Vulnerabilities", link: "/app/vulnerabilities", icon: <VMIcon /> },
 
   { id: 0, type: "divider" },
-  { id: 0, type: "title", label: "DEFAULT" },
-  { id: 6, label: "Typography", link: "/app/typography", icon: <TypographyIcon /> },
-  { id: 7, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
-  { id: 8, label: "Notifications", link: "/app/notifications", icon: <NotificationsIcon /> },
-  { id: 9, label: "UI Elements", link: "/app/ui", icon: <UIElementsIcon />,
-    children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
-    ],
-  },
-  { id: 0, type: "divider" },
   { id: 0, type: "title", label: "HELP" },
-  { id: 10, label: "About", link: "", icon: <LibraryIcon /> },
-  { id: 11, label: "Support", link: "", icon: <SupportIcon /> },
-  { id: 12, label: "FAQ", link: "", icon: <FAQIcon /> },
+  { id: 10, label: "About", link: "/app/about", icon: <LibraryIcon /> },
+  { id: 11, label: "FAQ", link: "/app/faq", icon: <FAQIcon /> },
+
+  // { id: 0, type: "divider" },
+  // { id: 0, type: "title", label: "OTHER EXAMPLES" },
+  // { id: 1, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+  // { id: 8, label: "Charts", link: "/app/charts", icon: <AssessmentIcon /> },
 ];
 
 function Sidebar({ location }) {

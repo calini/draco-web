@@ -32,6 +32,9 @@ import Dot from "../../components/Sidebar/components/Dot";
 import MUIDataTable from "mui-datatables";
 import useFetch from "use-http";
 import Link from "@material-ui/core/Link";
+import moment from "moment";
+import mock from "./mock";
+import BigStat from "./components/BigStat/BigStat";
 
 function groupBy(xs, key) {
   return xs.reduce(function(rv, x) {
@@ -40,55 +43,62 @@ function groupBy(xs, key) {
   }, {});
 };
 
-export default function DependencyCheck(props) {
+export default function HostVulns(props) {
   var classes = useStyles();
   var theme = useTheme();
 
-  const { loading, fetchError, data } = useFetch("/api/v1/snyk/org/calini/projects", []);
+  const { loading, fetchError, data } = useFetch("/api/v1/vulns/1", []);
 
+  let titles = ["Hostname", "Date", "IP", "Port", "Name", "Threat", "Severity", "NVT", "Report Date"];
   let rows = [];
   let chartData = {};
   if (!loading) {
-    rows = data.projects.map(({
-            name,
-            type,
-            lastTestedDate,
-            remoteRepoUrl,
-            issueCountsBySeverity,
-            browseUrl
+    rows = data.JSON.map(({
+          hostName,
+          name,
+          host,
+          port,
+          threat,
+          severity,
+          nvt,
+          date,
+          reportDate,
         }) => [
+            hostName,
+            moment(date).format('MMMM Do YYYY, hh:mm'),
+            host,
+            port,
             name,
-            <Link href={remoteRepoUrl}>repo</Link>,
-            type,
-            issueCountsBySeverity.high,
-            issueCountsBySeverity.medium,
-            issueCountsBySeverity.low,
-            <Link href={browseUrl}>{lastTestedDate}</Link>,
+            threat,
+            severity,
+            <Link href={"http://www.securityspace.com/smysecure/catid.html?id=" + nvt}>{nvt}</Link>,
+            moment(reportDate).format('MMMM Do YYYY, hh:mm'),
         ]);
-    chartData = Object.entries(groupBy(data.projects, "type")).map((type) => {return {name: type[0], value: type[1].length, color: randomColor()}});
+    chartData = Object.entries(groupBy(data.JSON, "threat")).map((type) => {return {name: type[0], value: type[1].length, color: threatColor(type[0])}});
+    // chartData = [{name: "Bigger", value: 3, color: randomColor()}, {name: "Smaller", value: 2, color: randomColor()}];
     console.log(chartData);
   }
 
-  function randomColor() {
-    return "#"+((1<<24)*Math.random()|0).toString(16)
+  function threatColor(threat) {
+    switch (threat) {
+        case "High":
+            return "secondary";
+            break;
+        case "Medium":
+            return "warning";
+            break;
+        case "Low":
+            return "primary";
+            break;
+    }
   }
 
   return (
     <>
-      <PageTitle title="Dependency Check" button="Snyk API" />
+      <PageTitle title="Vulnerability Scans" button="OpenVAS" />
       <Grid container spacing={4}>
-        <Grid item xs={12}>
-          <MUIDataTable
-              title="Projects"
-              data={rows}
-              columns={["Project Name", "Link", "Manifest", "High", "Med", "Low", "Last Tested"]}
-              options={{
-                filterType: "checkbox",
-              }}
-          />
-        </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Widget title="Manifests (Languages)" upperTitle className={classes.card}>
+          <Widget title="Overall Severity" upperTitle className={classes.card}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <ResponsiveContainer width="100%" height={144}>
@@ -102,7 +112,7 @@ export default function DependencyCheck(props) {
                       {!loading && chartData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.color} // random color
+                          fill={theme.palette[entry.color].main}
                         />
                       ))}
                     </Pie>
@@ -127,6 +137,21 @@ export default function DependencyCheck(props) {
             </Grid>
           </Widget>
         </Grid>
+      {mock.bigStat.map(stat => (
+          <Grid item lg={3} md={4} sm={6} xs={12} key={stat.product}>
+              <BigStat {...stat} />
+          </Grid>
+      ))}
+        <Grid item xs={12}>
+              <MUIDataTable
+                  title="Projects"
+                  data={rows}
+                  columns={titles}
+                  options={{
+                      filterType: "checkbox",
+                  }}
+              />
+          </Grid>
       </Grid>
     </>
   );

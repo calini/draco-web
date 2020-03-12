@@ -9,115 +9,27 @@ import PageTitle from "../../components/PageTitle";
 import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
 
-export default function TypographyPage() {
+export default function AboutPage() {
   var classes = useStyles();
 
   return (
     <>
-      <PageTitle title="Typography" />
+      <PageTitle title="About" />
       <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Widget title="Headings" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography variant="h1" className={classes.text}>
-                h1. Heading
-              </Typography>
-              <Typography variant="h2" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography variant="h3" className={classes.text}>
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography variant="h5" className={classes.text}>
-                h5. Heading
-              </Typography>
-              <Typography variant="h6">h6. Heading</Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Typography Colors" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography variant="h1" color="primary" className={classes.text}>
-                h1. Heading
-              </Typography>
-              <Typography variant="h2" color="success" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography
-                variant="h3"
-                color="secondary"
-                className={classes.text}
-              >
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" color="warning" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography
-                variant="h5"
-                color="primary"
-                colorBrightness="light"
-                className={classes.text}
-              >
-                h5. Heading
-              </Typography>
-              <Typography variant="h6" color="info">
-                h6. Heading
-              </Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Basic Text Settings" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography className={classes.text}>Basic text</Typography>
-              <Typography className={classes.text} weight="light">
-                Basic light text
-              </Typography>
-              <Typography className={classes.text} weight="medium">
-                Basic medium text
-              </Typography>
-              <Typography className={classes.text} weight="bold">
-                Basic bold text
-              </Typography>
-              <Typography className={classes.text}>
-                BASIC UPPERCASE TEXT
-              </Typography>
-              <Typography className={classes.text}>
-                basic lowercase text
-              </Typography>
-              <Typography className={classes.text}>
-                Basic Capitalized Text
-              </Typography>
-              <Typography>
-                <i>Basic Cursive Text</i>
-              </Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Text Size" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography className={classes.text} size="sm">
-                Heading Typography SM Font Size
-              </Typography>
-              <Typography className={classes.text}>
-                Heading Typography Regular Font Size
-              </Typography>
-              <Typography className={classes.text} size="md">
-                Heading Typography MD Font Size
-              </Typography>
-              <Typography className={classes.text} size="xl">
-                Heading Typography XL Font Size
-              </Typography>
-              <Typography className={classes.text} size="xxl">
-                Heading Typography XXL Font Size
-              </Typography>
-            </div>
+        <Grid item xs={12} md={12}>
+          <Widget disableWidgetMenu>
+            <Typography className={classes.text} size="xl">About this Project</Typography>
+            <Typography className={classes.text} size="md">
+                The idea behind the project was to create a tool for developers or managers to ensure the application of secure development practices; This tool is supposed to collect and present security related information about a set of projects that are currently in development.
+            </Typography>
+            <Typography className={classes.text} size="xl">Who is this for</Typography>
+            <Typography className={classes.text} size="md">
+                As this has the potential of becoming a commercial application, it obviously has to have a target audience. I chose to target this at independent developers who just want to have their code checked and their VMs scanned every now and again, and small companies who may prefer this over an in-house solution
+            </Typography>
+            <Typography className={classes.text} size="xl">Why do we need security?</Typography>
+            <Typography className={classes.text} size="md">
+                As developers, and especially as a business, we are responsible for providing customers with the best service possible. That includes the security of your users and their assets, including personal information, banking information, and others.
+            </Typography>
           </Widget>
         </Grid>
       </Grid>

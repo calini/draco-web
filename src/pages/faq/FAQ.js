@@ -9,118 +9,32 @@ import PageTitle from "../../components/PageTitle";
 import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
 
-export default function AboutPage() {
+export default function FAQ() {
   var classes = useStyles();
 
   return (
-    <>
-      <PageTitle title="Typography" />
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Widget title="Headings" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography variant="h1" className={classes.text}>
-                h1. Heading
+      <>
+        <PageTitle title="About" />
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={12}>
+            <Widget disableWidgetMenu>
+              <Typography className={classes.text} size="xl">Where does all this data come from?</Typography>
+              <Typography className={classes.text} size="md">
+                Draco is relying on 3rd party tools/services to gather it's data. We are not reinventing the wheel, of course!
               </Typography>
-              <Typography variant="h2" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography variant="h3" className={classes.text}>
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography variant="h5" className={classes.text}>
-                h5. Heading
-              </Typography>
-              <Typography variant="h6">h6. Heading</Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Typography Colors" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography variant="h1" color="primary" className={classes.text}>
-                h1. Heading
-              </Typography>
-              <Typography variant="h2" color="success" className={classes.text}>
-                h2. Heading
-              </Typography>
-              <Typography
-                variant="h3"
-                color="secondary"
-                className={classes.text}
-              >
-                h3. Heading
-              </Typography>
-              <Typography variant="h4" color="warning" className={classes.text}>
-                h4. Heading
-              </Typography>
-              <Typography
-                variant="h5"
-                color="primary"
-                colorBrightness="light"
-                className={classes.text}
-              >
-                h5. Heading
-              </Typography>
-              <Typography variant="h6" color="info">
-                h6. Heading
-              </Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Basic Text Settings" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography className={classes.text}>Basic text</Typography>
-              <Typography className={classes.text} weight="light">
-                Basic light text
-              </Typography>
-              <Typography className={classes.text} weight="medium">
-                Basic medium text
-              </Typography>
-              <Typography className={classes.text} weight="bold">
-                Basic bold text
-              </Typography>
-              <Typography className={classes.text}>
-                BASIC UPPERCASE TEXT
-              </Typography>
-              <Typography className={classes.text}>
-                basic lowercase text
-              </Typography>
-              <Typography className={classes.text}>
-                Basic Capitalized Text
-              </Typography>
-              <Typography>
-                <i>Basic Cursive Text</i>
-              </Typography>
-            </div>
-          </Widget>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Widget title="Text Size" disableWidgetMenu>
-            <div className={classes.dashedBorder}>
-              <Typography className={classes.text} size="sm">
-                Heading Typography SM Font Size
-              </Typography>
-              <Typography className={classes.text}>
-                Heading Typography Regular Font Size
+              <Typography className={classes.text} size="xl">What are those services?</Typography>
+              <Typography className={classes.text} size="md">
+                <b>Nmap</b> is a network scanner that can detect open ports, services and estimate versions. We use it for gathering information about unintentionally open services.
               </Typography>
               <Typography className={classes.text} size="md">
-                Heading Typography MD Font Size
+                <b>Snyk</b> is a dependency checker as-a-service. It analyses code projects in one of the dozen compatible languages, and checks dependencies against a huge database of common vulnerabilities. We use it to help clean out our code.
               </Typography>
-              <Typography className={classes.text} size="xl">
-                Heading Typography XL Font Size
+              <Typography className={classes.text} size="md">
+                <b>OpenVAS</b> is an open-source scanner that can do authenticated or unauthenticated scans against Linux or Windows hosts, and detect CVEs (Common vulnerabilities and exploits). We use it for gathering host information, helping us figure out which VMs to patch.
               </Typography>
-              <Typography className={classes.text} size="xxl">
-                Heading Typography XXL Font Size
-              </Typography>
-            </div>
-          </Widget>
+            </Widget>
+          </Grid>
         </Grid>
-      </Grid>
-    </>
+      </>
   );
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Typography",
+  "name": "About",
   "version": "0.0.0",
-  "main": "Typography.js",
+  "main": "About.js",
   "private": true
 }

@@ -1,6 +1,6 @@
 {
-  "name": "Dashboard",
+  "name": "HostVulns",
   "version": "1.0.0",
   "private": true,
-  "main": "DependencyCheck.js"
+  "main": "HostVulns.js"
 }

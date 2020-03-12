@@ -1,5 +1,5 @@
 {
-  "name": "Dashboard",
+  "name": "DependencyCheck",
   "version": "1.0.0",
   "private": true,
   "main": "DependencyCheck.js"

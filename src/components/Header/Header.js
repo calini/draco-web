@@ -37,25 +37,26 @@ import {
 import { useUserDispatch, signOut } from "../../context/UserContext";
 
 const notifications = [
-  { id: 0, color: "warning", message: "Check out this awesome ticket" },
+  { id: 0,
+    color: "warning",
+    type: "tree",
+    message: "New vulnerable dependencies found...",
+    link: "/app/deps",
+  },
   {
     id: 1,
     color: "success",
-    type: "info",
-    message: "What is the best way to get ...",
+    type: "network",
+    message: "New ports open on IP 10.1.1.1",
+    link: "app/ports",
   },
   {
     id: 2,
     color: "secondary",
-    type: "notification",
-    message: "This is just a simple notification",
-  },
-  {
-    id: 3,
-    color: "primary",
-    type: "e-commerce",
-    message: "12 new orders has arrived today",
-  },
+    type: "host",
+    message: "Vulnerable hosts found...",
+    link: "/app/vulns",
+  }
 ];
 
 export default function Header(props) {

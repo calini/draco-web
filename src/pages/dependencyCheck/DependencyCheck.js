@@ -32,6 +32,7 @@ import Dot from "../../components/Sidebar/components/Dot";
 import MUIDataTable from "mui-datatables";
 import useFetch from "use-http";
 import Link from "@material-ui/core/Link";
+import moment from "moment";
 
 function groupBy(xs, key) {
   return xs.reduce(function(rv, x) {
@@ -40,38 +41,25 @@ function groupBy(xs, key) {
   }, {});
 };
 
-
-const PieChartData = [
-  { name: "Java (SANKY)", value: 400, color: "primary" },
-  { name: "Python (Django)", value: 300, color: "secondary" },
-  { name: "Python (Flask)", value: 300, color: "warning" },
-  { name: "Go (Gin)", value: 200, color: "success" },
-];
-
 export default function DependencyCheck(props) {
   var classes = useStyles();
   var theme = useTheme();
 
   const { loading, fetchError, data } = useFetch("/api/v1/snyk/org/calini/projects", []);
 
+  let titles = ["Project Name", "Manifest", "High", "Med", "Low", "Last Tested", "Github", "Snyk"];
   let rows = [];
   let chartData = {};
   if (!loading) {
-    rows = data.projects.map(({
+    rows = data.projects.map(({name, type, lastTestedDate, remoteRepoUrl, issueCountsBySeverity, browseUrl}) => [
             name,
-            type,
-            lastTestedDate,
-            remoteRepoUrl,
-            issueCountsBySeverity,
-            browseUrl
-        }) => [
-            name,
-            <Link href={remoteRepoUrl}>repo</Link>,
             type,
             issueCountsBySeverity.high,
             issueCountsBySeverity.medium,
             issueCountsBySeverity.low,
-            <Link href={browseUrl}>{lastTestedDate}</Link>,
+            moment(lastTestedDate).format('MMMM Do YYYY, hh:mm'),
+            <Link href={remoteRepoUrl}>Link</Link>,
+            <Link href={browseUrl}>Link</Link>,
         ]);
     chartData = Object.entries(groupBy(data.projects, "type")).map((type) => {return {name: type[0], value: type[1].length, color: randomColor()}});
     console.log(chartData);
@@ -89,7 +77,7 @@ export default function DependencyCheck(props) {
           <MUIDataTable
               title="Projects"
               data={rows}
-              columns={["Project Name", "Link", "Manifest", "High", "Med", "Low", "Last Tested"]}
+              columns={titles}
               options={{
                 filterType: "checkbox",
               }}
@@ -110,7 +98,7 @@ export default function DependencyCheck(props) {
                       {!loading && chartData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.color} // random color
+                          fill={entry.color}
                         />
                       ))}
                     </Pie>
