@@ -14,6 +14,10 @@ import {
   AccountBox as CustomerIcon,
   Done as ShippedIcon,
   Publish as UploadIcon,
+  Code as CodeIcon,
+  Storage as VMIcon,
+  Router as NetworkIcon,
+  AccountTree as TreeIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import classnames from "classnames";
@@ -39,6 +43,10 @@ const typesIcons = {
   report: <ReportIcon />,
   upload: <UploadIcon />,
   disc: <DiscIcon />,
+  code: <CodeIcon />,
+  host: <VMIcon />,
+  network: <NetworkIcon />,
+  tree: <TreeIcon />,
 };
 
 export default function Notification({ variant, ...props }) {

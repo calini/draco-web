@@ -29,8 +29,6 @@ import Widget from "../../components/Widget";
 import PageTitle from "../../components/PageTitle";
 import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
-import Table from "./components/Table/Table";
-import BigStat from "./components/BigStat/BigStat";
 import MUIDataTable from "mui-datatables";
 import useFetch from "use-http";
 import Link from "@material-ui/core/Link";
@@ -98,7 +96,7 @@ export default function DependencyCheck(props) {
           />
         </Grid>
         <Grid item lg={3} md={4} sm={6} xs={12}>
-          <Widget title="Languages & Frameworks" upperTitle className={classes.card}>
+          <Widget title="Manifests (Languages)" upperTitle className={classes.card}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <ResponsiveContainer width="100%" height={144}>
