@@ -3,23 +3,14 @@
 [![Build Status](https://travis-ci.org/calini/draco-web.svg?branch=master)](https://travis-ci.org/calini/draco-web)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web?ref=badge_shield)
 
-Web Dashboard for [Project Draco](https://github.com/calini/draco)
+The Web Dashboard for [Project Draco](https://github.com/calini/draco)
 
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web?ref=badge_large)
 
 Built with [React](https://facebook.github.io/react/), [Material-UI](https://material-ui.com), [React Router](https://reacttraining.com/react-router/).
 **No jQuery and Bootstrap!**
 
-**This version uses React 16.8.6, React Router v5, MaterialUI v4, built with React Hooks and React Context (No Redux)**
-
-[Demo](https://flatlogic.com/admin-dashboards/react-material-admin/demo). Use any credentials to log in.
-
-[![image](https://user-images.githubusercontent.com/24964748/55800639-df780300-5adc-11e9-84b7-7c2437088516.png)](https://flatlogic.com/admin-dashboards/react-material-admin/demo)
-
-## Full Version
-
-This is a limited version of [**Full React Material Admin**](https://flatlogic.com/templates/react-material-admin-full/demo) with more components, pages and theme support.
+## Demo
+This demo version has auth off; Please use any credentials to log in.
 
 ## Features
 
@@ -35,48 +26,60 @@ This is a limited version of [**Full React Material Admin**](https://flatlogic.c
 - CSS-in-JS styles
 - Webpack build
 - Stylish, clean, responsive layout
-- Authentication
 
 ## Pages
 
-We have implemented some basic pages, so you can see our template in action.
+The Dashboard focuses on three main aspects of application security:
 
-- Dashboard
-- Typography
-- Tables
-- Notifications
-- Charts
-- Icons
-- Maps
-- Login
-- Error
+#### 1. Login page
 
+![Login page](screenshots/login.png "Login page")
+
+#### 2. Dynamic analysis on Hosts
+
+![Dynamic analysis](screenshots/dynamic-analysis.png "Dynamic analysis")
+
+#### 3. Static analysis on Code
+
+![Static analysis](screenshots/static-analysis.png "Static analysis")
+
+#### 4. Network scanning on Ports/Services
+
+![Network scanning](screenshots/network-scanning.png "Network scanning")
+
+#### There are also an About and a FAQ page.
+
+![About](screenshots/About.png "About")
+![FAQ](screenshots/FAQ.png "FAQ")
+
+
+## Exporting Data
+
+You can export data in CSV format from any data table from the main 3 pages, after you have used it's search, sorting or filtering options to create the desired report.
+
+![CSV Export](screenshots/csv-export.png "CSV Export")
+ 
 ## Quick Start
 
-#### 1. Get the latest version
-
-You can start by cloning the latest version of React Dashboard on your
-local machine by running:
-
-```shell
-$ git clone https://github.com/flatlogic/react-material-admin.git MyApp
-$ cd MyApp
+#### 1. Install the dependencies: 
+```sh
+yarn install
+```
+#### 2. Run the website: 
+```sh
+yarn start
 ```
 
-#### 2. Run `yarn install`
-
-This will install both run-time project dependencies and developer tools listed
-in [package.json](package.json) file.
-
-#### 3. Run `yarn start`
-
-Runs the app in the development mode.
+This runs the app in development mode.
 
 Open http://localhost:3000 to view it in the browser. Whenever you modify any of the source files inside the `/src` folder,
 the module bundler ([Webpack](http://webpack.github.io/)) will recompile the
 app on the fly and refresh all the connected browsers.
 
-#### 4. Run `yarn build`
+#### 4. Building
+```sh
+yarn build
+```
 
 Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -84,31 +87,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
-## Support
 
-For any additional information please refer to [Flatlogic homepage](https://flatlogic.com).
+## Licensing
 
-## How can I support developers?
+[GPL-3](https://github.com/calini/draco-web/blob/master/LICENSE).
 
-- Star our GitHub repo :star:
-- [Tweet about it](https://twitter.com/intent/tweet?text=Amazing%20dashboard%20built%20with%20NodeJS,%20React%20and%20Bootstrap!&url=https://github.com/flatlogic/react-material-template&via=flatlogic).
-- Create pull requests, submit bugs, suggest new features or documentation updates :wrench:
-- Follow [@flatlogic on Twitter](https://twitter.com/flatlogic).
-- Subscribe to Flatlogic newsletter at [flatlogic.com](https://flatlogic.com/)
-- Like our page on [Facebook](https://www.facebook.com/flatlogic/) :thumbsup:
-
-## More from Flatlogic
-
-- [React Native Starter](https://github.com/flatlogic/react-native-starter) - 🚀 A powerful react native starter template that bootstraps development of your mobile application
-- [Sing App](https://github.com/flatlogic/sing-app) - 💥 Free and open-source admin dashboard template built with Bootstrap 4
-- [Awesome Bootstrap Checkboxes & Radios](https://github.com/flatlogic/awesome-bootstrap-checkbox) - ✅ Pure css way to make inputs look prettier
-- [React Dashboard](https://github.com/flatlogic/react-dashboard) - 🔥 React Dashboard - isomorphic admin dashboard template with GraphQL
-- [Light Blue Dashboard](https://github.com/flatlogic/light-blue-dashboard) - 💦 Free and open-source admin dashboard template built with Bootstrap
-
-## Premium themes
-
-Looking for premium themes and templates? Check out more [admin dashboard templates at flatlogic.com](https://flatlogic.com/admin-dashboards).
-
-## License
-
-[MIT](https://github.com/flatlogic/react-material-dashboard/blob/master/LICENSE.txt).
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcalini%2Fdraco-web?ref=badge_large)

@@ -4,6 +4,9 @@ DOCKER  = docker
 COMPOSE  = docker-compose
 TAG     = calini/draco-web:dev
 
+install:
+	$(YARN) install
+
 run:
 	$(YARN) start
 
